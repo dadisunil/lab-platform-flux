@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: platform-info
+  namespace: platform
+data:
+  purpose: "core platform services are added here in later phases"

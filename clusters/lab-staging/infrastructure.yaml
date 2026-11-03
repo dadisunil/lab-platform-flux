@@ -1,0 +1,30 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: infra-bootstrap
+  namespace: flux-system
+spec:
+  interval: 10m
+  path: ./infra-v2/common/bootstrap
+  prune: true
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: infra-core
+  namespace: flux-system
+spec:
+  interval: 10m
+  path: ./infra-v2/common/core
+  prune: true
+  wait: true
+  dependsOn:
+    - name: infra-bootstrap
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+

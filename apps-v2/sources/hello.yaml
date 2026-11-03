@@ -1,0 +1,14 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: hello
+  namespace: flux-system
+spec:
+  interval: 1m
+  url: https://github.com/YOUR_GH_USER/lab-hello-service
+  ref:
+    branch: main
+  # Only the deploy folder matters to the cluster: ignore everything else
+  ignore: |
+    /*
+    !/deploy
