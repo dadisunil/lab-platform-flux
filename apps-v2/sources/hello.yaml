@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m
-  url: https://github.com/YOUR_GH_USER/lab-hello-service
+  url: https://github.com/dadisunil/lab-hello-service
   ref:
     branch: main
   # Only the deploy folder matters to the cluster: ignore everything else
